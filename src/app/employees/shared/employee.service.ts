@@ -32,4 +32,9 @@ export class EmployeeService {
       salary: emp.salary,
     })
   }
+
+  deleteEmployee(key: string)
+  {
+    this.employeeList.remove(key);
+  }
 }

@@ -16,7 +16,10 @@ export class EmployeeComponent implements OnInit {
     this.resetForm()
   }
   onSubmit(form: NgForm){
-    this.employeeService.insertEmployee(form.value);
+    if(form.value.$key == '')
+      this.employeeService.insertEmployee(form.value);
+    else
+      this.employeeService.updateEmployee(form.value);
     this.resetForm(form);
   }
    resetForm(form: NgForm){
@@ -28,6 +31,14 @@ export class EmployeeComponent implements OnInit {
        designation: '',
        office: '',
        salary: 0,
+     }
+   }
+
+   onDelete(form: NgForm) {
+     if(confirm('Are you sure you want to delete this record?'))
+     {
+       this.employeeService.deleteEmployee(form.value.$key)
+       this.resetForm(form);
      }
    }
 }
