@@ -46,7 +46,7 @@
     <button class="btn btn-default" type="submit" style="margin:5px" [disabled]="!employeeForm.valid">
       <i class="fa fa-floppy-o"></i> Submit
     </button>
-    <button class="btn btn-default" (click)="onDelete(employeeForm)" type="button" style="margin:5px" *ngIf="employeeService.selectedEmployee.$key !=''">
+    <button class="btn btn-default" (click)="onDelete(employeeForm)" type="button" style="margin:5px" *ngIf="employeeService.selectedEmployee.$key !=null">
       <i class="fa fa-trash-o"></i> Delete
     </button>
     <button class="btn btn-default" (click)="resetForm()" type="button"style="margin:5px">

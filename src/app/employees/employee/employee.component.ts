@@ -16,7 +16,7 @@ export class EmployeeComponent implements OnInit {
     this.resetForm()
   }
   onSubmit(form: NgForm){
-    if(form.value.$key == '')
+    if(form.value.$key == null)
       this.employeeService.insertEmployee(form.value);
     else
       this.employeeService.updateEmployee(form.value);
@@ -26,7 +26,7 @@ export class EmployeeComponent implements OnInit {
     if(form != null)
       form.reset(); 
     this.employeeService.selectedEmployee = {
-       $key: '',
+       $key: null,
        name: '',
        designation: '',
        office: '',
