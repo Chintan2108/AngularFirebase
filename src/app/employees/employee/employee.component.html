@@ -1,5 +1,5 @@
 <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
-  <input type="hideen" name="$key" #$key=ngModel [(ngModel)]="employeeService.selectedEmployee.$key"></input>
+  <input type="hidden" name="$key" #$key=ngModel [(ngModel)]="employeeService.selectedEmployee.$key"/>
   
   <div class="form-group">
     <label>Name</label>
@@ -46,7 +46,7 @@
     <button class="btn btn-default" type="submit" style="margin:5px" [disabled]="!employeeForm.valid">
       <i class="fa fa-floppy-o"></i> Submit
     </button>
-    <button class="btn btn-default" type="button" style="margin:5px">
+    <button class="btn btn-default" type="button" style="margin:5px" *ngIf="employeeService.selectedEmployee.$key !=''">
       <i class="fa fa-trash-o"></i> Delete
     </button>
     <button class="btn btn-default" (click)="resetForm()" type="button"style="margin:5px">
