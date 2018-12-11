@@ -6,7 +6,7 @@
       <div class="input-group-addon">
         <i class="fa fa-user"></i>
       </div>
-      <input class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Full Name">
+      <input required class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Full Name">
     </div>
   </div>
 
@@ -42,7 +42,7 @@
   </div>
 
   <div class="form-group">
-    <button class="btn btn-default" type="submit" style="margin:5px">
+    <button class="btn btn-default" type="submit" style="margin:5px" [disabled]="!employeeForm.valid">
       <i class="fa fa-floppy-o"></i> Submit
     </button>
     <button class="btn btn-default" type="button" style="margin:5px">
